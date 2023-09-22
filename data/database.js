@@ -2,6 +2,6 @@ import mongoose from "mongoose";
 
 export const ConnectDB = () => {
     mongoose.connect(process.env.MONGO_URI, {dbName : "Todo_API"})
-    .then(() => console.log("DB connected"))
+    .then((c) => console.log(`Database Connected with ${c.connection.host}`))
     .catch((e) => console.log(e));
 };
