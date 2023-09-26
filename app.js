@@ -16,7 +16,10 @@ config({
 // middleware to access/send json data through body
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    credentials: true,
+}));
 
 // Routes
 app.use("/api/v1/users" ,userRouter);
