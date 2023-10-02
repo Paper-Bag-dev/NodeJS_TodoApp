@@ -16,8 +16,12 @@ config({
 // middleware to access/send json data through body
 app.use(express.json());
 app.use(cookieParser());
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
+    next();
+  });
 app.use(cors({
-        origin: [process.env.FRONTEND_URL],
+    origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
