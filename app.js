@@ -17,7 +17,7 @@ config({
 app.use(express.json());
 app.use(cookieParser());
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     next();
   });
 app.use(cors({
